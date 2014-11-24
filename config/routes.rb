@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   root 'posts#index'
+
+  namespace :api do
+    resources :posts
+    resources :text_posts
+  end
 end

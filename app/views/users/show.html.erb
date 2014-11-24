@@ -4,6 +4,10 @@
 
 <p class="lead"><%= @user.name %></p>
 
+<% if @user == current_user %>
+  <p class="lead">API Token: <%= @user.api_token %></p>
+<% end %>
+
 <%= link_to "Follow", follow_user_path(@user),
       method: :post, class: "btn btn-default" %>
 
