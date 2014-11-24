@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.posts.order("created_at DESC")
+  end
+
   def new
     @user = User.new
   end
@@ -10,6 +15,16 @@ class UsersController < ApplicationController
         notice: "Welcome to the site!"
     else
       render "new"
+    end
+  end
+
+  def follow
+    @user = User.find(params[:id])
+
+    if current_user.follow!(@user)
+      redirect_to @user, notice: "Follow successful!"
+    else
+      redirect_to @user, alert: "Error following."
     end
   end
 

@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1>User</h1>
+</div>
+
+<p class="lead"><%= @user.name %></p>
+
+<%= link_to "Follow", follow_user_path(@user),
+      class: "btn btn-default" %>
+
+<h2>Posts</h2>
+
+<%= render @posts %>
+
+<%= link_to "Home", root_path,
+      class: "btn btn-default" %>
