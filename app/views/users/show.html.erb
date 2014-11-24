@@ -5,7 +5,7 @@
 <p class="lead"><%= @user.name %></p>
 
 <%= link_to "Follow", follow_user_path(@user),
-      class: "btn btn-default" %>
+      method: :post, class: "btn btn-default" %>
 
 <h2>Posts</h2>
 
