@@ -28,6 +28,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def unfollow
+    @user = User.find(params[:id])
+
+    if current_user.unfollow!(@user)
+      redirect_to @user, notice: "Unfollow successful!"
+    else
+      redirect_to @user, alert: "Error unfollowing."
+    end
+  end
+
   private
 
   def user_params

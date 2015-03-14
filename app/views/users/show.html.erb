@@ -8,8 +8,15 @@
   <p class="lead">API Token: <%= @user.api_token %></p>
 <% end %>
 
-<%= link_to "Follow", follow_user_path(@user),
-      method: :post, class: "btn btn-default" %>
+<% if current_user && current_user != @user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to "Unfollow", unfollow_user_path(@user),
+          method: :delete, class: "btn btn-default" %>
+  <% else %>
+    <%= link_to "Follow", follow_user_path(@user),
+          method: :post, class: "btn btn-default" %>
+  <% end %>
+<% end %>
 
 <h2>Posts</h2>
 

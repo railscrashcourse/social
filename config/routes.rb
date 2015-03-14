@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new', as: 'signup'
   post 'follow/:id', to: 'users#follow', as: 'follow_user'
+  delete 'unfollow/:id', to: 'users#unfollow', as: 'unfollow_user'
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
